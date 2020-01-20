@@ -14,7 +14,7 @@ header {
 
 header h1 {
 	font-size: 22pt;
-	margin: 5px 0 0 0;
+	margin: 0;
 	text-align: center;
 }
 
@@ -31,19 +31,27 @@ header address > span {
 	display: block;
 }
 
-header address span, header address a {
-	font-size: 11pt;
+header address span[itemprop='email'] {
+	font-size: 18pt;
+	color: #999;
 }
 
+header address span, header address a {
+	font-size: 14pt;
+}
 
 header address #at:before {
-	content: '@';
+	content: '@o';
+	font-size: 18pt;
+	color: #999;
 }
 
 header > div {
 	clear: both;
 	padding-top: 25px;
 	font-size: 80%;
+	text-align: justify;
+	letter-spacing: 0.5px;
 }
 
 header > div > p {
@@ -57,7 +65,8 @@ header figure {
 	height: 100px;
 	border-radius: 50px;
 	background: url('../img/jan.jpg') no-repeat;
-	background-position-y: -7px;
+	background-position: -25px -8px;
+	background-size: 150%;
 }
 
 header figure img {
@@ -193,11 +202,27 @@ ul li + li:before {
 @media (max-width: 1200px) {
 	body {
 		margin: auto;
-		font-size: 18pt;
+		font-size: 20pt;
 		width: 80%;
 		}
 	header, main {
 		width: 100%;
+		margin-left: 0;
+		letter-spacing: unset;
+	}
+	header > div {
+		letter-spacing: unset;
+	}
+
+	header address span[itemprop='email']:before {
+		content: '<';
+	}
+	header address span[itemprop='email']:after {
+		content: '>';
+	}
+	header address a {
+		font-size: 18pt;
+		font-weight: normal;
 	}
 	main {
 		margin: 30px 0;
@@ -205,11 +230,42 @@ ul li + li:before {
 	article h2 {
 		margin-top: 50px;
 	}
+	footer {
+		border-top: 1px solid grey;
+		padding-top: 25px;
+	}
+	footer, footer small {
+		clear: both;
+		text-align: center;
+		font-size: 14pt;
+		font-family: monospace;
+	}
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+	header {
+		text-align: center;
+	}
 	header address {
 		clear: both;
-		margin: 10px 0;
+		float: none;
+		margin: 50px auto;
+	}
+	header figure {
+		float: none;
+		margin: auto;
+		width: 200px;
+		height: 200px;
+		border-radius: 100px;
+		background: url('../img/jan.jpg') no-repeat;
+		background-position: -1px -2px;
+		background-size: 100%;
+	}
+	main ul li {
+		margin: 10px 0px 0 0;
+		display: list-item;
+	}
+	main ul li + li:before {
+		content: unset;
 	}
 }
